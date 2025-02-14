@@ -1,0 +1,421 @@
+2025-02-14 10:34:45.516801-05:00 database: wrong user or password; user: "SA"
+org.h2.message.DbException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-232]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.engine.Engine.openSession(Engine.java:154)
+	at org.h2.engine.Engine.openSession(Engine.java:222)
+	at org.h2.engine.Engine.createSession(Engine.java:201)
+	at org.h2.engine.SessionRemote.connectEmbeddedOrServer(SessionRemote.java:344)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:124)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:291)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.test(WebApp.java:977)
+	at org.h2.server.web.WebApp.process(WebApp.java:241)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:176)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Nombre de usuario ó password incorrecto
+Wrong user name or password [28000-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:522)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 50 more
+2025-02-14 11:08:16.908817-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:08:16.968770-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:08:17.003991-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:09:22.264425-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:09:22.310695-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:09:22.358549-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:10:17.283275-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:10:17.331007-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:10:17.372870-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:11:09.572997-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:11:09.630891-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:11:09.660156-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:12:25.584107-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:12:25.640023-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:12:25.668688-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:12:35.429780-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:12:35.487740-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:12:35.513083-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:12:57.828250-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:12:57.863974-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:12:57.886007-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:13:28.719931-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:13:28.758668-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:13:28.788167-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:13:39.105535-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:13:39.149373-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:13:39.173875-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:13:46.543316-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:13:46.581181-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:13:46.609961-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:14:06.488089-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:14:06.531109-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:14:06.573390-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:14:18.344710-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:14:18.375990-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:14:18.397933-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
+2025-02-14 11:14:34.298662-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM TEST CUSTOMER [*]ORDER_PRODUCTS"
+Syntax error in SQL statement "SELECT * FROM TEST CUSTOMER [*]ORDER_PRODUCTS"; SQL statement:
+SELECT * FROM TEST CUSTOMER ORDER_PRODUCTS [42000-232]
+2025-02-14 11:14:35.573360-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM TEST CUSTOMER [*]ORDER_PRODUCTS"
+Syntax error in SQL statement "SELECT * FROM TEST CUSTOMER [*]ORDER_PRODUCTS"; SQL statement:
+SELECT * FROM TEST CUSTOMER ORDER_PRODUCTS [42000-232]
+2025-02-14 11:14:40.299290-05:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * FROM TEST CUSTOMER [*]ORDER_PRODUCTS PRODUCT"
+Syntax error in SQL statement "SELECT * FROM TEST CUSTOMER [*]ORDER_PRODUCTS PRODUCT"; SQL statement:
+SELECT * FROM TEST CUSTOMER ORDER_PRODUCTS PRODUCT [42000-232]
+2025-02-14 11:19:58.314532-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    create table [*]order (\000d\000a        id bigint not null,\000d\000a        order_status varchar(255),\000d\000a        total_amount float(53),\000d\000a        customer_id bigint,\000d\000a        primary key (id)\000d\000a    )"; expected "identifier"; SQL statement:
+
+    create table order (
+        id bigint not null,
+        order_status varchar(255),
+        total_amount float(53),
+        customer_id bigint,
+        primary key (id)
+    ) [42001-232]
+2025-02-14 11:19:58.333601-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists [*]order \000d\000a       add constraint FKb8tboo4d95mh8gavvovwbb7vg \000d\000a       foreign key (customer_id) \000d\000a       references customer"; expected "identifier"; SQL statement:
+
+    alter table if exists order 
+       add constraint FKb8tboo4d95mh8gavvovwbb7vg 
+       foreign key (customer_id) 
+       references customer [42001-232]
+2025-02-14 11:19:58.349815-05:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; se esperaba "identifier"
+Syntax error in SQL statement "\000d\000a    alter table if exists order_products \000d\000a       add constraint FKoqpgoc81npyup5ma3idjwj0xo \000d\000a       foreign key (order_id) \000d\000a       references [*]order"; expected "identifier"; SQL statement:
+
+    alter table if exists order_products 
+       add constraint FKoqpgoc81npyup5ma3idjwj0xo 
+       foreign key (order_id) 
+       references order [42001-232]
