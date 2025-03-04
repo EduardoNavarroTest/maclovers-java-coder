@@ -1,32 +1,33 @@
 package com.maclovers.maclovers.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.maclovers.maclovers.entity.Order;
 import com.maclovers.maclovers.repository.OrderRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class OrderService {
 
-    @Autowired
-    private OrderRepository orderRepository;
+    private final OrderRepository orderRepository;
 
-    public List<Order> getAllOrders() {
+    public List<Order> findAll() {
         return orderRepository.findAll();
     }
 
-    public Order getOrderById(Long id) {
-        return orderRepository.findById(id).orElse(null);
+    public Optional<Order> findById(Long id) {
+        return orderRepository.findById(id);
     }
 
-    public Order saveOrder(Order order) {
+    public Order save(Order order) {
         return orderRepository.save(order);
     }
 
-    public void deleteOrder(Long id) {
+    public void deleteById(Long id) {
         orderRepository.deleteById(id);
     }
 }

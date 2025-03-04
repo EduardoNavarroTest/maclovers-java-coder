@@ -1,32 +1,33 @@
 package com.maclovers.maclovers.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.maclovers.maclovers.entity.Product;
 import com.maclovers.maclovers.repository.ProductRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class ProductService {
-    
-    @Autowired
-    private ProductRepository productRepository;
-    
-    public List<Product> getAllProducts() {
+
+    private final ProductRepository productRepository;
+
+    public List<Product> findAll() {
         return productRepository.findAll();
     }
 
-    public Product getProductById(Long id) {
-        return productRepository.findById(id).orElse(null);
+    public Optional<Product> findById(Long id) {
+        return productRepository.findById(id);
     }
 
-    public Product saveProduct(Product product) {
+    public Product save(Product product) {
         return productRepository.save(product);
     }
 
-    public void deleteProduct(Long id) {
+    public void deleteById(Long id) {
         productRepository.deleteById(id);
     }
 }

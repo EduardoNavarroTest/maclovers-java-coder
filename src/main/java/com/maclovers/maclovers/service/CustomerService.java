@@ -1,34 +1,33 @@
 package com.maclovers.maclovers.service;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.maclovers.maclovers.entity.Customer;
 import com.maclovers.maclovers.repository.CustomerRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
-
+import java.util.List;
+import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class CustomerService {
 
-    @Autowired
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
-    public List<Customer> getAllCustomers() {
+    public List<Customer> findAll() {
         return customerRepository.findAll();
     }
 
-    public Customer getCustomerById(Long id) {
-        return customerRepository.findById(id).orElse(null);
+    public Optional<Customer> findById(Long id) {
+        return customerRepository.findById(id);
     }
 
-    public Customer saveCustomer(Customer customer) {
+    public Customer save(Customer customer) {
         return customerRepository.save(customer);
     }
 
-    public void deleteCustomer(Long id) {
+    public void deleteById(Long id) {
         customerRepository.deleteById(id);
     }
 }
