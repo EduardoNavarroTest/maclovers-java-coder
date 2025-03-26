@@ -6,72 +6,53 @@ import com.maclovers.maclovers.entity.Product;
 import com.maclovers.maclovers.repository.CustomerRepository;
 import com.maclovers.maclovers.repository.OrderRepository;
 import com.maclovers.maclovers.repository.ProductRepository;
+import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
-@Slf4j
 @Component
 @RequiredArgsConstructor
-public class DataInitializer implements CommandLineRunner {
+public class DataInitializer {
 
     private final CustomerRepository customerRepository;
-    private final OrderRepository orderRepository;
     private final ProductRepository productRepository;
+    private final OrderRepository orderRepository;
 
-    @Override
-    @Transactional
-    public void run(String... args) throws Exception {
+    @PostConstruct
+    public void initData() {
+        // Crear clientes
+        Customer customer1 = new Customer( "Eduardo Navarro", "eduardo@example.com");
+        Customer customer2 = new Customer( "María López", "maria@example.com");
+        customerRepository.saveAll(Arrays.asList(customer1, customer2));
 
-        if (productRepository.count() == 0) {
+        // Crear productos
+        Product product1 = new Product(null, "MacBook Pro", 2500.0, 10);
+        Product product2 = new Product(null, "iPhone 15", 1200.0, 15);
+        productRepository.saveAll(Arrays.asList(product1, product2));
 
-            // Crear productos
-            Product macbook = Product.builder()
-                    .name("MacBook Air M2")
-                    .price(1500.0)
-                    .build();
+        // Crear órdenes
+        Order order1 = Order.builder()
+                .customer(customer1)
+                .products(List.of(product1, product2))
+                .totalQuantity(2)
+                .totalPrice(product1.getPrice() + product2.getPrice())
+                .orderDate(LocalDateTime.now()) // ✅ Aseguramos que sea LocalDateTime
+                .build();
 
-            Product imac = Product.builder()
-                    .name("iMac 24 pulgadas")
-                    .price(1800.0)
-                    .build();
+        Order order2 = Order.builder()
+                .customer(customer2)
+                .products(List.of(product2))
+                .totalQuantity(1)
+                .totalPrice(product2.getPrice())
+                .orderDate(LocalDateTime.now().minusDays(2)) // ✅ Fecha anterior como ejemplo
+                .build();
 
-            Product macStudio = Product.builder()
-                    .name("Mac Studio")
-                    .price(3500.0)
-                    .build();
+        orderRepository.saveAll(Arrays.asList(order1, order2));
 
-            productRepository.saveAll(List.of(macbook, imac, macStudio));
-
-            // Crear cliente
-            Customer customer = Customer.builder()
-                    .name("Eduardo Navarro")
-                    .email("eduardo.navarro@maclovers.com")
-                    .build();
-
-            customerRepository.save(customer);
-
-            // Crear orden para el cliente y asociar productos
-            List<Product> productsForOrder = List.of(macbook, macStudio);
-
-            Order order = Order.builder()
-                    .orderDate(LocalDate.now())
-                    .customer(customer)
-                    .description("Subanme el sueldo por favor")
-                    .products(productsForOrder)
-                    .build();
-
-            orderRepository.save(order);
-
-            log.info("Datos iniciales insertados correctamente.");
-
-        } else {
-            log.info("Los datos iniciales ya existen. No se insertaron duplicados.");
-        }
+        System.out.println("📦 Datos de prueba insertados correctamente.");
     }
 }

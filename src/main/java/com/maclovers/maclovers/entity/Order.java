@@ -3,8 +3,7 @@ package com.maclovers.maclovers.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -12,17 +11,12 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "orders")
+@Table(name = "`ORDER`") // Mantienes el nombre con comillas invertidas si es necesario en tu BD
 public class Order {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "order_date")
-    private LocalDate orderDate;
-
-    private String description;
 
     @ManyToOne
     @JoinColumn(name = "customer_id")
@@ -30,11 +24,14 @@ public class Order {
 
     @ManyToMany
     @JoinTable(
-        name = "order_products",
+        name = "order_product",
         joinColumns = @JoinColumn(name = "order_id"),
         inverseJoinColumns = @JoinColumn(name = "product_id")
     )
-    @Builder.Default
-    private List<Product> products = new ArrayList<>();
-}
+    private List<Product> products;
 
+    private Integer totalQuantity;
+    private Double totalPrice;
+
+    private LocalDateTime orderDate; // 🔹 Reemplazo de `Date` por `LocalDateTime`
+}

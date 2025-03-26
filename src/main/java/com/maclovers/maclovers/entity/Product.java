@@ -1,8 +1,5 @@
 package com.maclovers.maclovers.entity;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,7 +8,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "products")
 public class Product {
 
     @Id
@@ -19,9 +15,6 @@ public class Product {
     private Long id;
 
     private String name;
-    
     private Double price;
-
-    @ManyToMany(mappedBy = "products")
-    private List<Order> orders = new ArrayList<>();
+    private Integer stock;
 }
