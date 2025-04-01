@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Table(name = "`ORDER`") // Mantienes el nombre con comillas invertidas si es necesario en tu BD
+@Table(name = "`ORDER`") 
 public class Order {
 
     @Id
